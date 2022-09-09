@@ -4,13 +4,13 @@ cat << EOF > /etc/config.json
 {
   "inbounds":[
     {
-      "port": $PORT,
-      "protocol": "$PR",
+      "port": 80,
+      "protocol": "vmess",
       "settings": {
         "decryption": "none",
         "clients": [
           {
-            "id": "$ID"
+            "id": "2d8acb89-7836-46fb-8044-d2b708b9b1bb"
           }
         ]
       },
@@ -26,5 +26,4 @@ cat << EOF > /etc/config.json
   ]
 }		
 EOF
-# nohup /xxx/xxxx run -c /etc/config.json > /dev/null 2>&1 &
-/xxx/xxxx run -c /etc/config.json
+nohup /xxx/xxxx run -c /etc/config.json > /dev/null 2>&1 &
