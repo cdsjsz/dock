@@ -2,18 +2,6 @@
     "log": {
         "loglevel": "info"
     },
-    "routing": {
-        "domainStrategy": "AsIs",
-        "rules": [
-            {
-                "type": "field",
-                "ip": [
-                    "geoip:private"
-                ],
-                "outboundTag": "block"
-            }
-        ]
-    },
     "inbounds": [
         {
             "listen": "127.0.0.1",
@@ -34,12 +22,7 @@
     ],
     "outbounds": [
         {
-            "protocol": "freedom",
-            "tag": "direct"
-        },
-        {
-            "protocol": "blackhole",
-            "tag": "block"
+            "protocol": "freedom"
         }
     ]
 }
