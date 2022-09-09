@@ -2,28 +2,49 @@
 
 cat << EOF > /etc/config.json
 {
-  "inbounds":[
-    {
-      "port": 443,
-      "protocol": "vmess",
-      "settings": {
-        "decryption": "none",
-        "clients": [
-          {
-            "id": "2d8acb89-7836-46fb-8044-d2b708b9b1bb"
-          }
+    "log": {
+        "loglevel": "info"
+    },
+    "routing": {
+        "domainStrategy": "AsIs",
+        "rules": [
+            {
+                "type": "field",
+                "ip": [
+                    "geoip:private"
+                ],
+                "outboundTag": "block"
+            }
         ]
-      },
-      "streamSettings": {
-        "network": "ws"
-      }
-    }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom"
-    }
-  ]
-}		
+    },
+    "inbounds": [
+        {
+            "listen": "0.0.0.0",
+            "port": 443,
+            "protocol": "vmess",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "2d8acb89-7836-46fb-8044-d2b708b9b1bb"
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "ws",
+                "security": "none"
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "tag": "direct"
+        },
+        {
+            "protocol": "blackhole",
+            "tag": "block"
+        }
+    ]
+}
 EOF
 nohup /xxx/xxxx run -c /etc/config.json > /dev/null 2>&1 &
