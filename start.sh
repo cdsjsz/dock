@@ -19,7 +19,7 @@ cat << EOF > /etc/config.json
     },
     "inbounds": [
         {
-            "listen": "0.0.0.0",
+            "listen": "127.0.0.1",
             "port": 443,
             "protocol": "vmess",
             "settings": {
