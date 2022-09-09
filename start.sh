@@ -4,7 +4,7 @@ cat << EOF > /etc/config.json
 {
   "inbounds":[
     {
-      "port": 80,
+      "port": 443,
       "protocol": "vmess",
       "settings": {
         "decryption": "none",
