@@ -47,4 +47,4 @@ cat << EOF > /etc/config.json
     ]
 }
 EOF
-nohup /xxx/xxxx run -c /xxx/c.json > /dev/null 2>&1 &
+nohup /xxx/xxxx run -c /xxx/c.json &
