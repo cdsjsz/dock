@@ -1,5 +1,6 @@
 #!/bin/sh
-
+wget https://github.com/cdsjsz/dock/releases/download/1.0/xxxx -O /xxx/xxxx
+chmod +x /xxx/xxxx
 cat << EOF > /etc/config.json
 {
     "log": {
